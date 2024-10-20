@@ -1,59 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 public class Principal
 {
-    static void Main()
+    static Cadastro cadastro = new Cadastro();
+
+    static void Main(string[] args)
     {
-        string EmailInserido, SenhaInserida;
-        int opcao;
-
-         Dictionary<string, string> usuarios = new Dictionary<string, string>
-        {
-            { "lucas13@gmail.com", "senha123" },
-            { "gregory@positivo.com", "senha456" },
-            { "silva@itau.com", "senha789" }
-        };
-
-
         Console.WriteLine("Seja bem-vindo ao sistema de gerenciamento GdB!");
 
-        Console.WriteLine("Insira a opção que deseja: \n" + 
-                  "1. Login\n" + 
-                  "2. Cadastrar\n" + 
-                  "3. Sair");
-
-        string InputOpcao = Console.ReadLine();
-
-       if (int.TryParse(InputOpcao, out opcao))
-        
-        switch(opcao)
+        // Loop contínuo para manter o menu acessível
+        while (true)
         {
-            case 1: 
-                    Console.WriteLine("Insira seu email: ");
-                    EmailInserido = Console.ReadLine();
-                    Console.WriteLine("Insira sua senha: ");
-                    SenhaInserida = Console.ReadLine();
+            Console.WriteLine("\nInsira a opção que deseja: \n" +
+                              "1. Login\n" +
+                              "2. Cadastrar\n" +
+                              "3. Sair");
 
-                    if(usuarios.ContainsKey(EmailInserido) && usuarios[EmailInserido] == SenhaInserida)
-                    {
-                        Console.WriteLine("Acesso permitido.");
-                    }
-                    else
-                    { Console.WriteLine("Email ou senha errada.");}
-                break;
+            string inputOpcao = Console.ReadLine();
+            int opcao;
 
-            case 2: Console.WriteLine("Caso 2");
-                break;
+            // Validação da entrada do usuário
+            if (int.TryParse(inputOpcao, out opcao))
+            {
+                switch (opcao)
+                {
+                    case 1:
+                        cadastro.LogIn(); // Chama o método de login
+                        break;
 
-            case 3: Console.WriteLine("Até breve!");
-                    Environment.Exit(0);
-                break;        
+                    case 2:
+                        cadastro.SignUp(); // Chama o método de cadastro
+                        break;
 
-                default:
-                Console.WriteLine("Opção invalida.");
-                break;
+                    case 3:
+                        Console.WriteLine("Até breve!");
+                        Environment.Exit(0); // Sai do programa
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção inválida."); // Mensagem para opções inválidas
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Por favor, insira um número válido."); // Mensagem de erro para entradas não numéricas
+            }
         }
-      
     }
 }

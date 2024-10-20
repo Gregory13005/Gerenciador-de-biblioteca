@@ -12,3 +12,4 @@
 /home/gregory/Documents/Studing/Gerenciador_Biblioteca/Biblioteca/obj/Debug/net8.0/Biblioteca.pdb
 /home/gregory/Documents/Studing/Gerenciador_Biblioteca/Biblioteca/obj/Debug/net8.0/Biblioteca.genruntimeconfig.cache
 /home/gregory/Documents/Studing/Gerenciador_Biblioteca/Biblioteca/obj/Debug/net8.0/ref/Biblioteca.dll
+/home/gregory/Documents/Studing/Gerenciador_Biblioteca/Biblioteca/obj/Debug/net8.0/Biblioteca.sourcelink.json
